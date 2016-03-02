@@ -792,13 +792,13 @@ html,body{
 </section>
 <script type="text/javascript" src="js/skrollr.min.js"></script>
 <script>
-var preImg=$('.prevjob-img').height();
-$('.prevjob-content').height(preImg);
-$('window').resize(function(){
+$(window).load(function() {
+	var preImg=$('.prevjob-img').height();
 	$('.prevjob-content').height(preImg);
-})
-jQuery(window).load(function($) {
-  var s = skrollr.init();
+	$('window').resize(function(){
+		$('.prevjob-content').height(preImg);
+	})
+	var s = skrollr.init();
 });
 </script>
 </body>
