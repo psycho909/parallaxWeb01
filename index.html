@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/fixed-positioning.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="js/jquery.mobile.custom.min.js"></script>
-<script src='js/swipe.js'></script>
 <style>
 *{
 	margin:0;
@@ -794,14 +792,6 @@ $('.prevjob-content').height(preImg);
 $('window').resize(function(){
 	$('.prevjob-content').height(preImg);
 })
-$(document).ready(function() {
-   $("#carousel_resume_img").swiperight(function() {
-      $("#carousel_resume_img").carousel('prev');
-    });
-   $("#carousel_resume_img").swipeleft(function() {
-      $("#carousel_resume_img").carousel('next');
-   });
-});
 skrollr.init();
 </script>
 </body>
