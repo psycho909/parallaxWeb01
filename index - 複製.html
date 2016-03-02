@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/fixed-positioning.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="js/jquery.mobile.custom.min.js"></script>
-<script src='js/swipe.js'></script>
 <style>
 *{
 	margin:0;
@@ -195,7 +193,7 @@ html,body{
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	margin: 0 auto .5em;
+	margin: 0 auto;
 	background-color: #58C9B9;
 	transition:all .5s;
 	transform:scale(0.1);
@@ -235,27 +233,23 @@ html,body{
 	background-color: #8CD790;
 }
 .about_me_box{
-	border: 1px solid #8CD790;
+	border: 1px solid black;
 	margin-left: 0;
 	margin-right: 0;
 	margin-bottom: 10px;
-	transition:all .5s;
-	border-radius: 8px;
 }
 .about_me_box [class*='col-']{
 	padding-left: 0;
 	padding-right: 0;
 }
 .about_me_title{
+	padding: .3em 0;
 	text-align: center;
 	background-color: #F6B352;
-	height: 40px;
-	line-height: 40px;
 }
 .about_me_content{
+	padding: .3em .3em;
 	background-color: #Ffa392;
-	font-size: .8em;
-	height: 40px;
 }
 /*==============*/
 .scroll-user{
@@ -633,8 +627,8 @@ html,body{
 		<div class="row about_me">
 			<div class="col-md-4">
 				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
+				data-0='border:1px solid black;'
+				data-end='border:3px solid red;'
 				>
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
@@ -649,10 +643,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -666,10 +657,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -683,10 +671,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -700,10 +685,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -717,10 +699,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -734,30 +713,10 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							新北市三重區中正北路145巷7弄1號2樓
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
+							NAME7
 						</div>
 					</div>
 					<div class="col-xs-8 col-md-8">
@@ -768,13 +727,24 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
-							NAME
+							NAME8
+						</div>
+					</div>
+					<div class="col-xs-8 col-md-8">
+						<div class="about_me_content">
+							CHEN CHING YANG
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row about_me_box">
+					<div class="col-xs-4 col-md-4">
+						<div class="about_me_title">
+							NAME9
 						</div>
 					</div>
 					<div class="col-xs-8 col-md-8">
@@ -794,14 +764,7 @@ $('.prevjob-content').height(preImg);
 $('window').resize(function(){
 	$('.prevjob-content').height(preImg);
 })
-$(document).ready(function() {
-   $("#carousel_resume_img").swiperight(function() {
-      $("#carousel_resume_img").carousel('prev');
-    });
-   $("#carousel_resume_img").swipeleft(function() {
-      $("#carousel_resume_img").carousel('next');
-   });
-});
+
 skrollr.init();
 </script>
 </body>
