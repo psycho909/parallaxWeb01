@@ -792,8 +792,8 @@ $('.prevjob-content').height(preImg);
 $('window').resize(function(){
 	$('.prevjob-content').height(preImg);
 })
-skrollr.init({
-	forceHeight:true
+jQuery(window).load(function($) {
+  var s = skrollr.init();
 });
 </script>
 </body>
