@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/fixed-positioning.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
 <style>
 *{
 	margin:0;
@@ -47,22 +48,6 @@ html,body{
 		float: left;
 	}
 }
-#bg1, #bg2, #bg3 {
-	z-index:-1;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background:url(images/bubbles.png) repeat 0 0;
-}
-#bg2 {
-	z-index:-2;
-	background-image:url(images/bubbles2.png);
-}
-#bg3 {
-	z-index:-3;
-	background-image:url(images/bubbles3.png);
-}
 /*====*/
 .resume_name{
 	z-index: 4;
@@ -72,7 +57,16 @@ html,body{
 }
 .resume_name_pic{
 	margin:0 auto;
+	transition:all .5s ease-in;
+	opacity: 1;
+	transform-origin: 0 0;
+	transform:translateX(0) rotate(0);
 }
+.resume_name_pic.active{
+	opacity: 0;
+	transform:translateX(-10%) rotate(-90deg);
+}
+/*====*/
 .img_carousel_box .container{
 	padding-right: 0;
 	padding-left: 0;
@@ -106,18 +100,11 @@ html,body{
 	text-align: center;
 }
 .prevjob-img{
-	transform:translateX(400px);
+	transform:translateX(80%);
+	transition:all .5s ease-in;
 }
 .prevjob-img.active{
-	-webkit-animation:imgmove .5s ease-in forwards;
-}
-@-webkit-keyframes imgmove{
-	0%{
-		transform:translateX(400px);
-	}
-	100%{
-		transform:translateX(0px);
-	}
+	transform:translateX(0);
 }
 /*==============*/
 .resume_other_one_box{
@@ -140,6 +127,10 @@ html,body{
 	background-color: blue;
 	transition:all .5s;
 	text-align: center;
+	border-radius: 0%;
+}
+.resume_other_caption.active{
+	border-radius: 20%;
 }
 .col-xs-12 .resume_other_caption{
 	font-size: 1vw;
@@ -175,12 +166,12 @@ html,body{
 }
 .skill_progress_bar{
 	height: 100%;
-	width: 1%;
+	width: 0%;
 	background-color: #337ab7;
 	text-align: center;
 	color: #fff;
 	box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
-	transition: all .5s;
+	transition: all .5s ease-in;
 }
 /*==============*/
 .resume_other_two_box{
@@ -195,9 +186,12 @@ html,body{
 	border-radius: 50%;
 	margin: 0 auto .5em;
 	background-color: #58C9B9;
-	transition:all .5s;
+	transition:all .5s ease-out;
 	transform:scale(0.1);
 	overflow: hidden;
+}
+.other_two_box.active{
+	transform:scale(1);
 }
 .other_two_icon_box{
 	position: absolute;
@@ -240,6 +234,9 @@ html,body{
 	transition:all .5s;
 	border-radius: 8px;
 }
+.about_me_box.active{
+	box-shadow:2px 2px 5px black;
+}
 .about_me_box [class*='col-']{
 	padding-left: 0;
 	padding-right: 0;
@@ -261,26 +258,14 @@ html,body{
 	top: 0;
 	left: 0;
 }
-#skrollr-body {
-    float: left;
-    width: 100%;
-    height: 100%;
-}
 </style>
 </head>
-<body id='skrollr-body'>
-<div id="bg1" data-0="background-position:0px 0px;" data-end="background-position:-500px -1000px;"></div>
-<div id="bg2" data-0="background-position:0px 0px;" data-end="background-position:-500px -800px;"></div>
-<div id="bg3" data-0="background-position:0px 0px;" data-end="background-position:-500px -600px;"></div>
-
+<body>
 <section class="resume_box" >
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 resume_name">
-				<img src="images/resume_name.png" alt="" class="img-responsive resume_name_pic scroll-user"
-				data-0='opacity:1;top:0%;transform:rotate(0deg);transform-origin:0 0;'
-				data-top-bottom='opacity:0;top:-10%;transform:rotate(-90deg);'
-				>
+				<img src="images/resume_name.png" alt="" class="img-responsive resume_name_pic">
 			</div>
 		</div>
 	</div>
@@ -341,10 +326,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-8">
-				<img src="images/island.jpg" alt="" class="img-responsive prevjob-img scroll-user"
-				data-center-top='transform:translateX(80%);'
-				data-center-center='transform:translateX(0px);'
-				>
+				<img src="images/island.jpg" alt="" class="img-responsive prevjob-img">
 			</div>
 		</div>
 	</div>
@@ -355,10 +337,7 @@ html,body{
 		<div class="row">
 			<div class="col-md-4 col-xs-12">
 				<div class="resume_other_content">
-					<div class="resume_other_caption"
-					data-center-top='border-radius:0;'
-					data-center-center='border-radius:20%;'
-					>
+					<div class="resume_other_caption">
 						<h3>Thumbnail label</h3>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -367,10 +346,7 @@ html,body{
 			</div>
 			<div class="col-md-4 col-xs-12">
 				<div class="resume_other_content">
-					<div class="resume_other_caption"
-					data-center-top='border-radius:0;'
-					data-center-center='border-radius:20%;'
-					>
+					<div class="resume_other_caption">
 						<h3>Thumbnail label</h3>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -379,10 +355,7 @@ html,body{
 			</div>
 			<div class="col-md-4 col-xs-12">
 				<div class="resume_other_content">
-					<div class="resume_other_caption"
-					data-center-top='border-radius:0;'
-					data-center-center='border-radius:20%;'
-					>
+					<div class="resume_other_caption">
 						<h3>Thumbnail label</h3>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -412,9 +385,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="20%"
 									>50%</div>
 								</div>
 							</div>
@@ -429,9 +401,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="40%"
 									>50%</div>
 								</div>
 							</div>
@@ -446,9 +417,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="10%"
 									>50%</div>
 								</div>
 							</div>
@@ -463,9 +433,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="80%"
 									>50%</div>
 								</div>
 							</div>
@@ -484,9 +453,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="60%"
 									>50%</div>
 								</div>
 							</div>
@@ -501,9 +469,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="30%"
 									>50%</div>
 								</div>
 							</div>
@@ -518,9 +485,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="90%"
 									>50%</div>
 								</div>
 							</div>
@@ -535,9 +501,8 @@ html,body{
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
-									<div class="skill_progress_bar scroll-user"
-									data-center-top="width:0%;"
-									data-center-center="width:50%;"
+									<div class="skill_progress_bar"
+									data-progress="100%"
 									>50%</div>
 								</div>
 							</div>
@@ -553,10 +518,7 @@ html,body{
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1-5">
-				<div class="other_two_box scroll-user"
-				data-center-top='transform:scale(0.1);'
-				data-center-center='transform:scale(1);'
-				>
+				<div class="other_two_box">
 					<div class="other_two_icon_box">
 						<span class="other_two_icon glyphicon glyphicon-user"></span>
 						<span class="other_two_text">USER</span>
@@ -564,10 +526,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-1-5">
-				<div class="other_two_box scroll-user"
-				data-center-top='transform:scale(0.1);'
-				data-center-center='transform:scale(1);'
-				>
+				<div class="other_two_box">
 					<div class="other_two_icon_box">
 						<span class="other_two_icon glyphicon glyphicon-user"></span>
 						<span class="other_two_text">USER</span>
@@ -575,10 +534,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-1-5">
-				<div class="other_two_box scroll-user"
-				data-center-top='transform:scale(0.1);'
-				data-center-center='transform:scale(1);'
-				>
+				<div class="other_two_box ">
 					<div class="other_two_icon_box">
 						<span class="other_two_icon glyphicon glyphicon-user"></span>
 						<span class="other_two_text">USER</span>
@@ -586,10 +542,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-1-5">
-				<div class="other_two_box scroll-user"
-				data-center-top='transform:scale(0.1);'
-				data-center-center='transform:scale(1);'
-				>
+				<div class="other_two_box">
 					<div class="other_two_icon_box">
 						<span class="other_two_icon glyphicon glyphicon-user"></span>
 						<span class="other_two_text">USER</span>
@@ -597,10 +550,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-1-5">
-				<div class="other_two_box scroll-user"
-				data-center-top='transform:scale(0.1);'
-				data-center-center='transform:scale(1);'
-				>
+				<div class="other_two_box">
 					<div class="other_two_icon_box">
 						<span class="other_two_icon glyphicon glyphicon-user"></span>
 						<span class="other_two_text">USER</span>
@@ -635,10 +585,7 @@ html,body{
 		</div>
 		<div class="row about_me">
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -652,10 +599,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -669,10 +613,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -686,10 +627,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -703,10 +641,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -720,10 +655,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -737,10 +669,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -754,10 +683,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -771,10 +697,7 @@ html,body{
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box scroll-user"
-				data-2000='box-shadow:0px 0px 0px black;'
-				data-end='box-shadow:2px 2px 5px black;'
-				>
+				<div class="row about_me_box">
 					<div class="col-xs-4 col-md-4">
 						<div class="about_me_title">
 							NAME
@@ -790,7 +713,6 @@ html,body{
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="js/skrollr.min.js"></script>
 <script>
 $(window).load(function() {
 	var preImg=$('.prevjob-img').height();
@@ -798,7 +720,35 @@ $(window).load(function() {
 	$('window').resize(function(){
 		$('.prevjob-content').height(preImg);
 	})
-	var s = skrollr.init();
+	$('.img_carousel_box').waypoint(function(){
+		$('.resume_box .resume_name_pic').addClass('active');
+	},{offset:'10%'})
+	$('.resume_prevjob_box').waypoint(function(){
+		$('.resume_prevjob_box .prevjob-img').addClass('active');
+	},{offset:'10%'})
+	$('.resume_other_one_box').waypoint(function(){
+		$('.resume_other_one_box .resume_other_caption').addClass('active');
+	},{offset:'10%'})
+	$('.resume_other_two_box').waypoint(function(){
+		$('.resume_other_two_box .other_two_box').addClass('active');
+	},{offset:'10%'})
+	$('.resume_contact_box').waypoint(function(){
+		$('.resume_contact_box .about_me_box').addClass('active');
+	},{offset:'60%'})
+	var elmArr = [],p;
+	$('.skill_progress_bar').each(function(i){
+		//console.log(i+'='+$(this).attr('data-progress'))
+		p=$(this).attr('data-progress')
+		elmArr.push(p);
+	});
+	$('.resume_skill_box').waypoint(function(){
+		var barl=$('.skill_progress_bar');
+		//console.log(elmArr);
+		for(var i=0;i<barl.length;i++){
+			barl.eq(i).css('width',elmArr[i])
+			console.log(elmArr[i])
+		}
+	},{offset:'10%'})
 });
 </script>
 </body>
