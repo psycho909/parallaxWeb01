@@ -60,11 +60,11 @@ html,body{
 	transition:all .5s ease-in;
 	opacity: 1;
 	transform-origin: 0 0;
-	transform:translateX(0) rotate(0);
+	transform:translate3d(0,0,0) rotate(0);
 }
 .resume_name_pic.active{
 	opacity: 0;
-	transform:translateX(-10%) rotate(-90deg);
+	transform:translate3d(-10%,0,0) rotate(-90deg);
 }
 /*====*/
 .img_carousel_box .container{
@@ -100,11 +100,11 @@ html,body{
 	text-align: center;
 }
 .prevjob-img{
-	transform:translateX(80%);
+	transform:translate3d(80%,0,0);
 	transition:all .5s ease-in;
 }
 .prevjob-img.active{
-	transform:translateX(0);
+	transform:translate3d(0,0,0);
 }
 /*==============*/
 .resume_other_one_box{
@@ -123,7 +123,7 @@ html,body{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate3d(-50%,-50%,0);
 	background-color: blue;
 	transition:all .5s;
 	text-align: center;
@@ -197,7 +197,7 @@ html,body{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate3d(-50%,-50%,0);
 }
 .other_two_icon_box span{
 	display: block;
@@ -218,10 +218,10 @@ html,body{
 	height: 200px;
 	object-fit: cover;
 	transition:all .5s ease-in;
-	transform:translateY(90%);
+	transform:translate3d(0,90%,0);
 }
 .img_about_box.active{
-	transform:translateY(0%);
+	transform:translate3d(0,0%,0);
 }
 /*==============*/
 .resume_contact_box{
