@@ -175,7 +175,7 @@ html,body{
 }
 /*==============*/
 .resume_other_two_box{
-	padding: 5vw 0;
+	padding: 2vw 0;
 }
 .col-md-1-5{
 	background-color: red;
@@ -184,7 +184,7 @@ html,body{
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	margin: 0 auto .5em;
+	margin: .25em auto .25em;
 	background-color: #58C9B9;
 	transition:all .5s ease-out;
 	transform:scale(0.1);
@@ -211,7 +211,17 @@ html,body{
 }
 /*==============*/
 .resume_about_box{
-	height: 80vh;
+	padding: .8em 0;
+}
+.img_about_box{
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	transition:all .5s ease-in;
+	transform:translateY(90%);
+}
+.img_about_box.active{
+	transform:translateY(0%);
 }
 /*==============*/
 .resume_contact_box{
@@ -565,12 +575,15 @@ html,body{
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			123
+				<h3 style="text-align: center;">Thumbnail label</h3>
+				<p>高雄市苓雅區一棟出租大樓，竟然在6天內傳出2腐屍案。上月26日警消據報抵達現場，發現一名50歲宋姓男子，陳屍在套房內，身上雖無明顯傷痕，但顯然死亡多時，屍體已嚴重腐爛。檢警決定3日再行複驗詳查死因。然而本月1日的下午，該大樓內竟然又再飄出惡臭，警消再度抵達現場，在另外一間套房內發現一名40歲的班姓男子，倒在電腦桌前死亡多時，身上一樣無明顯外傷，但遺體嚴重腐爛，發出惡臭。2件腐屍案死者都無留下遺書，其中是否有關聯性，還待檢警進一步調查。</p>
+				<p>如此詭異的巧合，就發生在高雄市苓雅區一棟公寓大樓內，本月1日下午，大樓內傳出陣陣屍臭味，警方據報抵達現場後發現，為一名多日聯繫不上的班姓男子在屋內死亡。離奇的是，同棟大樓4天前也曾發生另一起腐屍案。</p>
+				<p>據苓雅分隊表示，4天前抵達大樓現場時同樣滿是屍臭味，1日又到同棟大樓救護，聞到相似的味道，立即心裡有底。目前兩名死者的詳細死亡原因，都由員警調查處理。</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-			123
+				<img src="images/061.jpg" alt="" class="img-responsive img_about_box">
 			</div>
 		</div>
 	</div>
@@ -715,6 +728,17 @@ html,body{
 </section>
 <script>
 $(window).load(function() {
+	$(window).on('scroll',function(){
+		if($(window).scrollTop()==0){
+			$('.resume_box .resume_name_pic').removeClass('active');
+			$('.resume_prevjob_box .prevjob-img').removeClass('active');
+			$('.resume_other_one_box .resume_other_caption').removeClass('active');
+			$('.resume_other_two_box .other_two_box').removeClass('active');
+			$('.resume_about_box .img_about_box').removeClass('active');
+			$('.resume_contact_box .about_me_box').removeClass('active');
+			$('.skill_progress_bar').css('width',0);
+		}
+	})
 	var preImg=$('.prevjob-img').height();
 	$('.prevjob-content').height(preImg);
 	$('window').resize(function(){
@@ -732,21 +756,23 @@ $(window).load(function() {
 	$('.resume_other_two_box').waypoint(function(){
 		$('.resume_other_two_box .other_two_box').addClass('active');
 	},{offset:'10%'})
+
+	$('.resume_about_box').waypoint(function(){
+		$('.resume_about_box .img_about_box').addClass('active');
+	},{offset:'10%'})
+
 	$('.resume_contact_box').waypoint(function(){
 		$('.resume_contact_box .about_me_box').addClass('active');
 	},{offset:'60%'})
 	var elmArr = [],p;
 	$('.skill_progress_bar').each(function(i){
-		//console.log(i+'='+$(this).attr('data-progress'))
 		p=$(this).attr('data-progress')
 		elmArr.push(p);
 	});
 	$('.resume_skill_box').waypoint(function(){
 		var barl=$('.skill_progress_bar');
-		//console.log(elmArr);
 		for(var i=0;i<barl.length;i++){
 			barl.eq(i).css('width',elmArr[i])
-			console.log(elmArr[i])
 		}
 	},{offset:'10%'})
 });
