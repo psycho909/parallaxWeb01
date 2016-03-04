@@ -33,29 +33,14 @@ body{
 	width: 20%;
 	float: left;
 }
-@media (min-width: 768px) {
-.col-sm-1-5 {
-		width: 20%;
-		float: left;
-	}
-}
-@media (min-width: 992px) {
-	.col-md-1-5 {
-		width: 20%;
-		float: left;
-	}
-}
-@media (min-width: 1200px) {
-	.col-lg-1-5 {
-		width: 20%;
-		float: left;
-	}
-}
 /*====*/
 .resume_name{
 	height: 60vh;
 	background-color: hsl(200, 100%, 50%);
 	overflow: hidden;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
 }
 .resume_name_pic{
 	margin:0 auto;
@@ -67,6 +52,15 @@ body{
 .resume_name_pic.active{
 	opacity: 0;
 	transform:translate3d(-10%,0,0) rotate(-90deg);
+}
+.text_name{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 5em;
+	color: #fff;
+	z-index: 999;
 }
 .scene{
 	width: 100%;
@@ -209,8 +203,8 @@ body{
 	background-color: red;
 }
 .other_two_box{
-	width: 150px;
-	height: 150px;
+	width: 130px;
+	height: 130px;
 	border-radius: 50%;
 	margin: .25em auto .25em;
 	background-color: #58C9B9;
@@ -232,7 +226,7 @@ body{
 	text-align: center;
 }
 .other_two_icon{
-	font-size: 5em;
+	font-size: 3em;
 }
 .other_two_text{
 	font-size: 2em;
@@ -262,7 +256,6 @@ body{
 }
 .about_me{
 	padding: .8em 1em;
-	background-color: #8CD790;
 }
 .about_me_box{
 	border: 1px solid #8CD790;
@@ -290,28 +283,6 @@ body{
 	font-size: .8em;
 	height: 40px;
 }
-.test{
-	height: 50vh;
-	background-color: brown;
-}
-.test-content{
-	width: 100%;
-	height: 100%;
-	background-color: yellow;
-}
-.test-box .col-md-4{
-	padding-left: 0;
-	padding-right: 0;
-}
-.test-box .col-md-4:nth-child(1) .test-content{
-	background-color: yellow;
-}
-.test-box .col-md-4:nth-child(2) .test-content{
-	background-color: red;
-}
-.test-box .col-md-4:nth-child(3) .test-content{
-	background-color: blue;
-}
 .resume_contact_box{
 	background-image: url('images/ignacio-hennigs-kenya-serengeti-africa-4.jpg');
 	background-size: cover;
@@ -319,19 +290,202 @@ body{
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-.resume_name{
+/*====*/
+.test{
+	padding: 4em 0;
+	background-color: #dedede;
+}
+.test-content{
+	height: 100%;
+}
+.test-box .col-md-3{
 	padding-left: 0;
 	padding-right: 0;
+	height: 140px;
+	border: 1px solid #fff;
+}
+.test-content a{
+	background-image: url('images/icon_college_1.png');
+	background-repeat: no-repeat;
+	background-position: 50% 20%;
+	text-align: center;
+	padding: 80px 0 0 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration:none;
 	position: relative;
 }
-.text_name{
+.test-content a:after{
+	content: '';
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	font-size: 5em;
+	display: block;
+	bottom: 0;
+	right: 0;
+	width: 32px;
+	height: 32px;
+	background-size: 32px 32px;
+	background-image: url('images/icon_open.png');
+}
+.test-content .text-caption{
 	color: #fff;
-	z-index: 999;
+}
+.test-box .test-content{
+	margin-left: -1px;
+}
+.test-box .test-content:nth-child(1){
+	background-color: #df72a2;
+}
+.test-box .test-content:nth-child(2){
+	background-color: red;
+}
+.test-box .test-content:nth-child(3){
+	background-color: blue;
+}
+.test-box .test-content:nth-child(4){
+	background-color: green;
+}
+.test-box .test-content:nth-child(5){
+	background-color: yellow;
+	margin-top: -1px;
+}
+.test-box .test-content:nth-child(6){
+	background-color: red;
+	margin-top: -1px;
+}
+.test-box .test-content:nth-child(7){
+	background-color: blue;
+	margin-top: -1px;
+}
+.test-box .test-content:nth-child(8){
+	background-color: green;
+	margin-top: -1px;
+}
+/*=====*/
+@media (min-width: 768px) {
+.col-sm-1-5 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-1-5 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 1200px) {
+	.col-lg-1-5 {
+		width: 20%;
+		float: left;
+	}
+	.test-box{
+		padding-left: 6em;
+		padding-right: 6em;
+	}
+	.four_angle_row{
+
+	}
+	.other_two_row{
+		padding-left: 6em;
+		padding-right: 6em;
+	}
+}
+/*=======*/
+.four_angle_box{
+	padding: 2em 0;
+}
+.four_angle_col{
+	padding-left: 0;
+	padding-right: 0;
+}
+.four_angle_thumbnail{
+	width: 265px;
+	margin-bottom: 0;
+	padding: 0;
+	border:none;
+	text-decoration: none;
+	cursor: pointer;
+	margin: 0 auto 0;
+}
+.four_angle_thumbnail:hover{
+	text-decoration: none;
+}
+.four_angle_img_box{
+	width: 265px;
+	height: 159px;
+	position: relative;
+}
+.four_angle_img_box:after{
+	content: '';
+	display: block;
+	position: absolute;
+	top: -25px;
+	left: -25px;
+	width: 51px;
+	height: 51px;
+	background-color: #fff;
+	transform:rotate(45deg);
+	z-index: 2;
+}
+.four_angle_img_box:before{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -25px;
+	right: -25px;
+	width: 51px;
+	height: 51px;
+	background-color: #fff;
+	transform:rotate(45deg);
+	z-index: 2;
+}
+.four_angle_img_box .four_angle_bgcolor{
+	width: 100%;
+	height: 100%;
+}
+.four_angle_thumbnail:hover .four_angle_bgcolor::after{
+	opacity: .35;
+}
+.four_angle_img_box .four_angle_bgcolor:after{
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+	position: absolute;
+	top:0;
+	left: 0;
+	opacity: 0;
+	transition: all .2s ease-in;
+}
+.four_angle_img_box .four_angle_bgcolor .four_angle_img img{
+	width: 100%;
+	height: 100%;
+}
+.four_angle_img_box .four_angle_bgcolor .four_angle_img:after{
+	content: '';
+	display: block;
+	position: absolute;
+	top: -25px;
+	right: -25px;
+	width: 51px;
+	height: 51px;
+	background-color: #fff;
+	transform:rotate(45deg);
+	z-index: 2;
+}
+.four_angle_img_box .four_angle_bgcolor .four_angle_img:before{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -25px;
+	left: -25px;
+	width: 51px;
+	height: 51px;
+	background-color: #fff;
+	transform:rotate(45deg);
+	z-index: 2;
 }
 </style>
 </head>
@@ -385,20 +539,69 @@ body{
 <section class="test">
 	<div class="container">
 		<div class="row test-box">
-			<div class="col-md-4">
-				<div class="test-content">
-					test123
-				</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
 			</div>
-			<div class="col-md-4">
-				<div class="test-content">
-					test456
-				</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
 			</div>
-			<div class="col-md-4">
-				<div class="test-content">
-					test789
-				</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-3 test-content">
+				<a href="#">
+					<strong class="text-caption">
+						pleasant cooperation
+						<p>games promotion are welcome</p>
+					</strong>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -432,7 +635,72 @@ body{
 		</div>
 	</div>
 </section>
-
+<section class="four_angle_box">
+	<div class="container">
+		<div class="row four_angle_row">
+			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
+				<a src='#' class="four_angle_thumbnail thumbnail">
+					<div class="four_angle_img_box">
+						<div class="four_angle_bgcolor">
+							<div class="four_angle_img">
+								<img src="images/abstract.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
+				<a src='#' class="four_angle_thumbnail thumbnail">
+					<div class="four_angle_img_box">
+						<div class="four_angle_bgcolor">
+							<div class="four_angle_img">
+								<img src="images/abstract.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
+				<a src='#' class="four_angle_thumbnail thumbnail">
+					<div class="four_angle_img_box">
+						<div class="four_angle_bgcolor">
+							<div class="four_angle_img">
+								<img src="images/abstract.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
+				<a src='#' class="four_angle_thumbnail thumbnail">
+					<div class="four_angle_img_box">
+						<div class="four_angle_bgcolor">
+							<div class="four_angle_img">
+								<img src="images/abstract.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="resume_other_one_box">
 	<div class="container">
 		<div class="row">
@@ -617,7 +885,7 @@ body{
 
 <section class="resume_other_two_box">
 	<div class="container">
-		<div class="row">
+		<div class="row other_two_row">
 			<div class="col-md-1-5">
 				<div class="other_two_box">
 					<div class="other_two_icon_box">
