@@ -17,6 +17,9 @@
 html,body{
 	min-height:100%;
 }
+body{
+	overflow-scrolling: touch;
+}
 .col-xs-1-5,
 .col-sm-1-5,
 .col-md-1-5,
@@ -50,10 +53,9 @@ html,body{
 }
 /*====*/
 .resume_name{
-	z-index: 4;
-}
-.resume_name{
+	height: 60vh;
 	background-color: hsl(200, 100%, 50%);
+	overflow: hidden;
 }
 .resume_name_pic{
 	margin:0 auto;
@@ -66,18 +68,36 @@ html,body{
 	opacity: 0;
 	transform:translate3d(-10%,0,0) rotate(-90deg);
 }
+.scene{
+	width: 100%;
+	height: 80vh;
+	background-image: url('images/t01.jpg')
+}
+.bg{
+	width: 100%;
+	height: 80vh;
+	background-size: cover;
+}
+.bg01{
+	background-image: url('images/t01.jpg');
+	background-position: top center;
+}
+.bg02{
+	background-image: url('images/t02.png');
+	background-position: top center;
+}
 /*====*/
 .img_carousel_box .container{
 	padding-right: 0;
 	padding-left: 0;
 }
 .img_carousel_box{
-	height: 100vh;
+	height: 80vh;
 }
 .carousel-inner>.item>img,
 .carousel-inner>.item>a>img {
     display: block;
-    height: 100vh;
+    height: 80vh;
     max-width: 100%;
     line-height: 1;
     width: 100%;
@@ -99,9 +119,13 @@ html,body{
 .resume_prevjob .caption{
 	text-align: center;
 }
+.resume_prevjob_box{
+	padding: .8em 0;
+}
 .prevjob-img{
 	transform:translate3d(80%,0,0);
 	transition:all .5s ease-in;
+	margin: .5em auto;
 }
 .prevjob-img.active{
 	transform:translate3d(0,0,0);
@@ -113,12 +137,16 @@ html,body{
 }
 .resume_other_content{
 	width: 100%;
-	height: 50vh;
+	padding: 8em 0;
 	background:red;
 	position: relative;
+	transition:all .5s;
+	transform:rotateY(60deg);
+}
+.resume_other_content.active{
+	transform:rotateY(0deg);
 }
 .resume_other_caption{
-	height: 90%;
 	width: 90%;
 	position: absolute;
 	top: 50%;
@@ -262,27 +290,70 @@ html,body{
 	font-size: .8em;
 	height: 40px;
 }
-/*==============*/
-.scroll-user{
+.test{
+	height: 50vh;
+	background-color: brown;
+}
+.test-content{
+	width: 100%;
+	height: 100%;
+	background-color: yellow;
+}
+.test-box .col-md-4{
+	padding-left: 0;
+	padding-right: 0;
+}
+.test-box .col-md-4:nth-child(1) .test-content{
+	background-color: yellow;
+}
+.test-box .col-md-4:nth-child(2) .test-content{
+	background-color: red;
+}
+.test-box .col-md-4:nth-child(3) .test-content{
+	background-color: blue;
+}
+.resume_contact_box{
+	background-image: url('images/ignacio-hennigs-kenya-serengeti-africa-4.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.resume_name{
+	padding-left: 0;
+	padding-right: 0;
 	position: relative;
-	top: 0;
-	left: 0;
+}
+.text_name{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 5em;
+	color: #fff;
+	z-index: 999;
 }
 </style>
 </head>
 <body>
-<section class="resume_box" >
-	<div class="container">
+<section class="resume_box">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 resume_name">
-				<img src="images/resume_name.png" alt="" class="img-responsive resume_name_pic">
+				<div class="text_name">
+					TEXT NAME
+				</div>
+				<ul id="scene" class="scene">
+					<li class="layer bg bg01" data-depth="0.10"></li>
+					<li class="layer bg bg02" data-depth="0.20"></li>
+				</ul>
 			</div>
 		</div>
 	</div>
 </section>
 
 <section class="img_carousel_box">
-	<div class="container">
+	<div class="container-fluid" style="padding-right: 0;padding-left: 0;">
 		<div id="carousel_resume_img" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carousel_resume_img" data-slide-to="0" class="active"></li>
@@ -311,7 +382,27 @@ html,body{
 		</div>
 	</div>
 </section>
-
+<section class="test">
+	<div class="container">
+		<div class="row test-box">
+			<div class="col-md-4">
+				<div class="test-content">
+					test123
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="test-content">
+					test456
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="test-content">
+					test789
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="resume_prevjob_box">
 	<div class="container">
 		<div class="row resume_prevjob">
@@ -726,8 +817,11 @@ html,body{
 		</div>
 	</div>
 </section>
+<script src="js/jquery.parallax.js"></script>
 <script>
 $(window).load(function() {
+	$('#scene').parallax();
+
 	$(window).on('scroll',function(){
 		if($(window).scrollTop()==0){
 			$('.resume_box .resume_name_pic').removeClass('active');
@@ -736,6 +830,7 @@ $(window).load(function() {
 			$('.resume_other_two_box .other_two_box').removeClass('active');
 			$('.resume_about_box .img_about_box').removeClass('active');
 			$('.resume_contact_box .about_me_box').removeClass('active');
+			$('.resume_other_one_box .resume_other_content').removeClass('active');
 			$('.skill_progress_bar').css('width',0);
 		}
 	})
@@ -751,6 +846,7 @@ $(window).load(function() {
 		$('.resume_prevjob_box .prevjob-img').addClass('active');
 	},{offset:'10%'})
 	$('.resume_other_one_box').waypoint(function(){
+		$('.resume_other_one_box .resume_other_content').addClass('active');
 		$('.resume_other_one_box .resume_other_caption').addClass('active');
 	},{offset:'10%'})
 	$('.resume_other_two_box').waypoint(function(){
