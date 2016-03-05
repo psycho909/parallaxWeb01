@@ -529,6 +529,9 @@ body{
 }
 .card_rotate_front{
 	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate3d(-50%,-50%,0);
 	backface-visibility:hidden;
 }
 .card_rotate_thumbnail{
@@ -538,7 +541,9 @@ body{
 }
 .card_rotate_back{
 	position: absolute;
-	transform:rotateY(180deg);
+	top: 50%;
+	left: 50%;
+	transform:translate3d(-50%,-50%,0) rotateY(180deg);
 	backface-visibility:hidden;
 }
 /*==media quary==*/
