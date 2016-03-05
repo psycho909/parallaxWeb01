@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>parallax</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -125,39 +127,6 @@ body{
 	transform:translate3d(0,0,0);
 }
 /*==============*/
-.resume_other_one_box{
-	background-color: #F17F42;
-	padding: 3vw 0;
-}
-.resume_other_content{
-	width: 100%;
-	padding: 8em 0;
-	background:red;
-	position: relative;
-	transition:all .5s;
-	transform:rotateY(60deg);
-}
-.resume_other_content.active{
-	transform:rotateY(0deg);
-}
-.resume_other_caption{
-	width: 90%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate3d(-50%,-50%,0);
-	background-color: blue;
-	transition:all .5s;
-	text-align: center;
-	border-radius: 0%;
-}
-.resume_other_caption.active{
-	border-radius: 20%;
-}
-.col-xs-12 .resume_other_caption{
-	font-size: 1vw;
-}
-/*==============*/
 .resume_skill_box{
 	padding: 0 0 1em;
 	background-color: #30A9DE;
@@ -211,9 +180,13 @@ body{
 	transition:all .5s ease-out;
 	transform:scale(0.1);
 	overflow: hidden;
+	border: 10px solid #eee;
 }
 .other_two_box.active{
 	transform:scale(1);
+}
+.other_two_box.active:hover{
+	border: 10px solid #017CBB;
 }
 .other_two_icon_box{
 	position: absolute;
@@ -326,6 +299,23 @@ body{
 	height: 32px;
 	background-size: 32px 32px;
 	background-image: url('images/icon_open.png');
+	z-index: 2;
+}
+.test-content a:before{
+	content: '';
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: blue;
+	z-index: 1;
+	opacity: 0;
+	transition: all .3s ease-in;
+}
+.test-content:hover a::before{
+	opacity: .3;
 }
 .test-content .text-caption{
 	color: #fff;
@@ -375,7 +365,6 @@ body{
 	padding: 0;
 	border:none;
 	text-decoration: none;
-	cursor: pointer;
 	margin: 0 auto 0;
 }
 .four_angle_thumbnail:hover{
@@ -385,6 +374,7 @@ body{
 	width: 265px;
 	height: 159px;
 	position: relative;
+	overflow: hidden;
 }
 .four_angle_img_box:after{
 	content: '';
@@ -457,7 +447,33 @@ body{
 	transform:rotate(45deg);
 	z-index: 2;
 }
-/*======*/
+.four_angle_hover{
+	position: absolute;
+	top:-25px;
+	right: 10px;
+	z-index: 3;
+	transition: all .3s ease-in;
+	opacity: 0.1;
+}
+.four_angle_thumbnail:hover .four_angle_hover{
+	opacity: 1;
+	top:0px;
+}
+.four_angle_hover2{
+	position: absolute;
+	bottom:-25px;
+	left: -25px;
+	z-index: 3;
+	transition: all .3s ease-in;
+	transform:rotate(45deg);
+	opacity: 0.1;
+}
+.four_angle_thumbnail:hover .four_angle_hover2{
+	opacity: 1;
+	bottom:5px;
+	left: 5px;
+}
+/*==banner_box==*/
 .banner_box{
 	padding: 2em 0;
 }
@@ -499,6 +515,33 @@ body{
 	transform:translate3d(-50%,-50%,0) scale(0.9);
 }
 /*=====*/
+.card_rotate_box{
+	padding: 1em 0;
+}
+.card_rotate_col{
+	margin: 0 auto;
+	height: 389px;
+	transform-style: preserve-3d;
+	transition: all .5s ease-in;
+}
+.card_rotate_col:hover{
+	transform:rotateY(180deg);
+}
+.card_rotate_front{
+	position: absolute;
+	backface-visibility:hidden;
+}
+.card_rotate_thumbnail{
+	padding: 0;
+	width: 265px;
+	margin: 0 auto 0;
+}
+.card_rotate_back{
+	position: absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+}
+/*==media quary==*/
 @media (min-width: 768px) {
 .col-sm-1-5 {
 		width: 20%;
@@ -689,7 +732,28 @@ body{
 	<div class="container">
 		<div class="row four_angle_row">
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a src='#' class="four_angle_thumbnail thumbnail">
+				<a href='#' class="four_angle_thumbnail thumbnail">
+					<div class="four_angle_img_box">
+						<div class="four_angle_bgcolor">
+							<div class="four_angle_img">
+								<img src="images/abstract.jpg" alt="">
+							</div>
+							<div class="four_angle_hover">
+								<img src="images/four_angle_hover.png" alt="">
+							</div>
+							<div class="four_angle_hover2">
+								<img src="images/four_angle_hover2.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
+				<a href='#' class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
@@ -704,7 +768,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a src='#' class="four_angle_thumbnail thumbnail">
+				<a href='#' class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
@@ -719,7 +783,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a src='#' class="four_angle_thumbnail thumbnail">
+				<a href='#' class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
@@ -732,54 +796,6 @@ body{
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 					</div>
 				</a>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a src='#' class="four_angle_thumbnail thumbnail">
-					<div class="four_angle_img_box">
-						<div class="four_angle_bgcolor">
-							<div class="four_angle_img">
-								<img src="images/abstract.jpg" alt="">
-							</div>
-						</div>
-					</div>
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="resume_other_one_box">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-xs-12">
-				<div class="resume_other_content">
-					<div class="resume_other_caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-xs-12">
-				<div class="resume_other_content">
-					<div class="resume_other_caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-xs-12">
-				<div class="resume_other_content">
-					<div class="resume_other_caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -980,6 +996,69 @@ body{
 	</div>
 </section>
 
+<section class="card_rotate_box">
+	<div class="container">
+		<div class="row card_rotate_row">
+			<div class="col-md-3 col-sm-6 col-xs-12 card_rotate_col">
+				<div class="card_rotate_front">
+					<img src="images/card_front.png" alt="">
+				</div>
+				<div class="thumbnail card_rotate_thumbnail card_rotate_back">
+					<div class="card_rotate_img_box">
+						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 card_rotate_col">
+				<div class="card_rotate_front">
+					<img src="images/card_front.png" alt="">
+				</div>
+				<div class="thumbnail card_rotate_thumbnail card_rotate_back">
+					<div class="card_rotate_img_box">
+						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 card_rotate_col">
+				<div class="card_rotate_front">
+					<img src="images/card_front.png" alt="">
+				</div>
+				<div class="thumbnail card_rotate_thumbnail card_rotate_back">
+					<div class="card_rotate_img_box">
+						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 card_rotate_col">
+				<div class="card_rotate_front">
+					<img src="images/card_front.png" alt="">
+				</div>
+				<div class="thumbnail card_rotate_thumbnail card_rotate_back">
+					<div class="card_rotate_img_box">
+						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
+					</div>
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="resume_about_box">
 	<div class="container">
 		<div class="row">
@@ -1156,11 +1235,9 @@ $(window).load(function() {
 		if($(window).scrollTop()==0){
 			$('.resume_box .resume_name_pic').removeClass('active');
 			$('.resume_prevjob_box .prevjob-img').removeClass('active');
-			$('.resume_other_one_box .resume_other_caption').removeClass('active');
 			$('.resume_other_two_box .other_two_box').removeClass('active');
 			$('.resume_about_box .img_about_box').removeClass('active');
 			$('.resume_contact_box .about_me_box').removeClass('active');
-			$('.resume_other_one_box .resume_other_content').removeClass('active');
 			$('.skill_progress_bar').css('width',0);
 		}
 	})
@@ -1179,10 +1256,6 @@ $(window).load(function() {
 	},{offset:'10%'})
 	$('.resume_prevjob_box').waypoint(function(){
 		$('.resume_prevjob_box .prevjob-img').addClass('active');
-	},{offset:'10%'})
-	$('.resume_other_one_box').waypoint(function(){
-		$('.resume_other_one_box .resume_other_content').addClass('active');
-		$('.resume_other_one_box .resume_other_caption').addClass('active');
 	},{offset:'10%'})
 	$('.resume_other_two_box').waypoint(function(){
 		$('.resume_other_two_box .other_two_box').addClass('active');
@@ -1204,6 +1277,7 @@ $(window).load(function() {
 		var barl=$('.skill_progress_bar');
 		for(var i=0;i<barl.length;i++){
 			barl.eq(i).css('width',elmArr[i])
+			barl.eq(i).text(elmArr[i]);
 		}
 	},{offset:'10%'})
 });
