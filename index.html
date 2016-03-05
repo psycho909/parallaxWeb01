@@ -353,11 +353,12 @@ body{
 }
 /*=======*/
 .four_angle_box{
-	padding: 2em 0;
+	padding: 1em 0 0;
 }
 .four_angle_col{
 	padding-left: 0;
 	padding-right: 0;
+	margin-bottom: 1em;
 }
 .four_angle_thumbnail{
 	width: 265px;
@@ -516,17 +517,20 @@ body{
 }
 /*=====*/
 .card_rotate_box{
-	padding: 1em 0;
+	padding: 1em 0 0;
 }
 .card_rotate_col{
-	margin: 0 auto;
+	margin: 0 auto 1em;
 	height: 389px;
 	transform-style: preserve-3d;
 	transition: all .5s ease-in;
 }
-.card_rotate_col:hover{
+.card_rotate_col.active{
 	transform:rotateY(180deg);
 }
+/*.card_rotate_col:hover{
+	transform:rotateY(180deg);
+}*/
 .card_rotate_front{
 	position: absolute;
 	top: 50%;
@@ -1233,9 +1237,34 @@ body{
 </section>
 <script src="js/jquery.parallax.js"></script>
 <script>
+var device = {
+	is_android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    is_blackberry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    is_iphone: function() {
+        return navigator.userAgent.match(/iPhone/i);
+    },
+    is_ipad: function() {
+        return navigator.userAgent.match(/iPad/i);
+    },
+    is_ipod: function() {
+        return navigator.userAgent.match(/iPod/i);
+    },
+    is_ios: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    is_windows_phone: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    is_mobile: function() {
+        return (device.is_android() || device.is_blackberry() || device.is_ios() || device.is_windows_phone() );
+    }
+};
 $(window).load(function() {
 	$('#scene').parallax();
-
 	$(window).on('scroll',function(){
 		if($(window).scrollTop()==0){
 			$('.resume_box .resume_name_pic').removeClass('active');
@@ -1285,6 +1314,29 @@ $(window).load(function() {
 			barl.eq(i).text(elmArr[i]);
 		}
 	},{offset:'10%'})
+	if(device.is_mobile()){
+		$('.card_rotate_col').on('click',function(){
+			if($(this).hasClass('active')){
+				$(this).removeClass('active');
+			}else{
+				$(this).addClass('active');
+			}
+		})
+	}else{
+		$('.card_rotate_col').hover(function(){
+			if($(this).hasClass('active')){
+				$(this).removeClass('active');
+			}else{
+				$(this).addClass('active');
+			}
+		},function(){
+			if($(this).hasClass('active')){
+				$(this).removeClass('active');
+			}else{
+				$(this).addClass('active');
+			}
+		})
+	}
 });
 </script>
 </body>
