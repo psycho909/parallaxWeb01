@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>parallax</title>
+<title>Parallax Scroll OnePage WebDesign</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/fixed-positioning.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/jquery.waypoints.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
 *{
 	margin:0;
@@ -18,6 +19,8 @@
 }
 html,body{
 	min-height:100%;
+	font-family: '微軟正黑體';
+	text-decoration: none;
 }
 body{
 	overflow-scrolling: touch;
@@ -139,6 +142,9 @@ body{
 .prevjob-img.active{
 	transform:translate3d(0,0,0);
 }
+.img-box{
+	max-height: 200px;
+}
 /*==============*/
 .resume_skill_box{
 	padding: 0 0 1em;
@@ -166,7 +172,6 @@ body{
 	color: #fff;
 	text-align: center;
 	font-weight: bold;
-	text-shadow: 0 0 1px #000;
 }
 .skill_progress{
 	height: 20px;
@@ -186,15 +191,11 @@ body{
 .resume_other_two_box{
 	padding: 2vw 0;
 }
-.col-md-1-5{
-	background-color: red;
-}
 .other_two_box{
 	width: 130px;
 	height: 130px;
 	border-radius: 50%;
 	margin: .25em auto .25em;
-	background-color: #58C9B9;
 	transition:all .5s ease-out;
 	transform:scale(0.1);
 	overflow: hidden;
@@ -203,8 +204,20 @@ body{
 .other_two_box.active{
 	transform:scale(1);
 }
-.other_two_box.active:hover{
+.other_two_col:nth-child(1) .other_two_box.active:hover{
 	border: 10px solid #017CBB;
+}
+.other_two_col:nth-child(2) .other_two_box.active:hover{
+	border: 10px solid #f94e3f;
+}
+.other_two_col:nth-child(3) .other_two_box.active:hover{
+	border: 10px solid #5CAB7D;
+}
+.other_two_col:nth-child(4) .other_two_box.active:hover{
+	border: 10px solid #7200da;
+}
+.other_two_col:nth-child(5) .other_two_box.active:hover{
+	border: 10px solid #ffc952;
 }
 .other_two_icon_box{
 	position: absolute;
@@ -218,9 +231,6 @@ body{
 }
 .other_two_icon{
 	font-size: 3em;
-}
-.other_two_text{
-	font-size: 2em;
 }
 /*==============*/
 .resume_about_box{
@@ -296,12 +306,13 @@ body{
 }
 .about_me_content{
 	background-color: #FFFFF2;
-	font-size: .8em;
+	font-size: 1em;
 	height: 40px;
 	line-height: 40px;
 	padding-left: 6px;
 	border-radius: 0 6px 6px 0;
 	font-weight: bold;
+	text-align: center;
 }
 .resume_contact_box{
 	background-image: url('images/about_me_star.jpg');
@@ -313,7 +324,7 @@ body{
 /*====*/
 .test{
 	padding: 1em 0;
-	background-color: #dedede;
+	background-image: url('images/d81a4666.png');
 }
 .test-content{
 	height: 100%;
@@ -325,7 +336,7 @@ body{
 	border: 1px solid #fff;
 }
 .test-content a{
-	background-image: url('images/icon_college_1.png');
+	background-size: 28%;
 	background-repeat: no-repeat;
 	background-position: 50% 20%;
 	text-align: center;
@@ -370,32 +381,42 @@ body{
 .test-box .test-content{
 	margin-left: -1px;
 }
-.test-box .test-content:nth-child(1){
-	background-color: #df72a2;
+.test-box .test-content:nth-child(1) a{
+	background-image: url('images/Alien.svg');
+	background-color: #8C4E96;
 }
-.test-box .test-content:nth-child(2){
-	background-color: red;
+.test-box .test-content:nth-child(2) a{
+	background-image: url('images/Moon.svg');
+	background-color: #A9BCCC;
 }
-.test-box .test-content:nth-child(3){
-	background-color: blue;
+.test-box .test-content:nth-child(3) a{
+	background-image: url('images/Ninja Turtle.svg');
+	background-color: #689238;
 }
-.test-box .test-content:nth-child(4){
-	background-color: green;
+.test-box .test-content:nth-child(4) a{
+	background-image: url('images/Astronaut.svg');
+	background-color: #3B92B9;
 }
-.test-box .test-content:nth-child(5){
-	background-color: yellow;
-	margin-top: -1px;
+.test-box .test-content:nth-child(5) a{
+	background-image: url('images/Comet.svg');
+	background-color: #BF411A;
 }
-.test-box .test-content:nth-child(6){
-	background-color: red;
-	margin-top: -1px;
+.test-box .test-content:nth-child(6) a{
+	background-image: url('images/Close Up Mode.svg');
+	background-color: #AC2B28;
 }
-.test-box .test-content:nth-child(7){
-	background-color: blue;
-	margin-top: -1px;
+.test-box .test-content:nth-child(7) a{
+	background-image: url('images/Thriller.svg');
+	background-color: #9D93AF;
 }
+.test-box .test-content:nth-child(8) a{
+	background-image: url('images/Sports Mode.svg');
+	background-color: #007166;
+}
+.test-box .test-content:nth-child(5),
+.test-box .test-content:nth-child(6),
+.test-box .test-content:nth-child(7),
 .test-box .test-content:nth-child(8){
-	background-color: green;
 	margin-top: -1px;
 }
 /*=======*/
@@ -686,7 +707,7 @@ body{
 	<div class="container">
 		<div class="row test-box">
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -694,7 +715,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -702,7 +723,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -710,7 +731,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -718,7 +739,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -726,7 +747,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -734,7 +755,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -742,7 +763,7 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-3 test-content">
-				<a href="#">
+				<a href="javascript:;">
 					<strong class="text-caption">
 						pleasant cooperation
 						<p>games promotion are welcome</p>
@@ -776,7 +797,9 @@ body{
 				</div>
 			</div>
 			<div class="col-md-8">
-				<img src="images/island.jpg" alt="" class="img-responsive prevjob-img">
+				<div class="img-box">
+					<img src="images/island.jpg" alt="" class="img-responsive prevjob-img">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -785,7 +808,7 @@ body{
 	<div class="container">
 		<div class="row four_angle_row">
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a href='#' class="four_angle_thumbnail thumbnail">
+				<a href="javascript:;" class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
@@ -806,11 +829,17 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a href='#' class="four_angle_thumbnail thumbnail">
+				<a href="javascript:;" class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
 								<img src="images/abstract.jpg" alt="">
+							</div>
+							<div class="four_angle_hover">
+								<img src="images/four_angle_hover.png" alt="">
+							</div>
+							<div class="four_angle_hover2">
+								<img src="images/four_angle_hover2.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -821,11 +850,17 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a href='#' class="four_angle_thumbnail thumbnail">
+				<a href="javascript:;" class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
 								<img src="images/abstract.jpg" alt="">
+							</div>
+							<div class="four_angle_hover">
+								<img src="images/four_angle_hover.png" alt="">
+							</div>
+							<div class="four_angle_hover2">
+								<img src="images/four_angle_hover2.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -836,11 +871,17 @@ body{
 				</a>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12 four_angle_col">
-				<a href='#' class="four_angle_thumbnail thumbnail">
+				<a href="javascript:;" class="four_angle_thumbnail thumbnail">
 					<div class="four_angle_img_box">
 						<div class="four_angle_bgcolor">
 							<div class="four_angle_img">
 								<img src="images/abstract.jpg" alt="">
+							</div>
+							<div class="four_angle_hover">
+								<img src="images/four_angle_hover.png" alt="">
+							</div>
+							<div class="four_angle_hover2">
+								<img src="images/four_angle_hover2.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -1006,43 +1047,43 @@ body{
 <section class="resume_other_two_box">
 	<div class="container">
 		<div class="row other_two_row">
-			<div class="col-md-1-5">
+			<div class="col-md-1-5 other_two_col">
 				<div class="other_two_box">
 					<div class="other_two_icon_box">
-						<span class="other_two_icon glyphicon glyphicon-user"></span>
-						<span class="other_two_text">USER</span>
+						<span class="other_two_icon fa fa-graduation-cap"></span>
+						<span class="other_two_text">宗教系</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1-5">
+			<div class="col-md-1-5 other_two_col">
 				<div class="other_two_box">
 					<div class="other_two_icon_box">
-						<span class="other_two_icon glyphicon glyphicon-user"></span>
-						<span class="other_two_text">USER</span>
+						<span class="other_two_icon fa fa-check"></span>
+						<span class="other_two_text">Bootstrap</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1-5">
+			<div class="col-md-1-5 other_two_col">
 				<div class="other_two_box ">
 					<div class="other_two_icon_box">
-						<span class="other_two_icon glyphicon glyphicon-user"></span>
-						<span class="other_two_text">USER</span>
+						<span class="other_two_icon fa fa-cog"></span>
+						<span class="other_two_text">Jquery Plugin</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1-5">
+			<div class="col-md-1-5 other_two_col">
 				<div class="other_two_box">
 					<div class="other_two_icon_box">
-						<span class="other_two_icon glyphicon glyphicon-user"></span>
-						<span class="other_two_text">USER</span>
+						<span class="other_two_icon fa fa-book"></span>
+						<span class="other_two_text">Learn</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1-5">
+			<div class="col-md-1-5 other_two_col">
 				<div class="other_two_box">
 					<div class="other_two_icon_box">
-						<span class="other_two_icon glyphicon glyphicon-user"></span>
-						<span class="other_two_text">USER</span>
+						<span class="other_two_icon fa fa-magic"></span>
+						<span class="other_two_text">NONE</span>
 					</div>
 				</div>
 			</div>
@@ -1134,7 +1175,7 @@ body{
 	<div class="container">
 		<div class="row banner-row">
 			<div class="col-md-12 banner-col">
-				<a href="#" class="banner-img-box">
+				<a href="javascript:;" class="banner-img-box">
 					<img src="images/banner_portal.png" alt="" class="banner-img-1 img-responsive center-block">
 					<img src="images/banner_frame.png" alt="" class="banner-img-2 img-responsive center-block">
 					<img src="images/banner_txt.png" alt="" class="banner-img-3 img-responsive center-block">
@@ -1154,12 +1195,12 @@ body{
 			<div class="col-md-4">
 				<div class="row about_me_row">
 					<div class="about_me_box down1">
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-3 col-md-3">
 							<div class="about_me_title">
 								NAME
 							</div>
 						</div>
-						<div class="col-xs-8 col-md-8">
+						<div class="col-xs-9 col-md-9">
 							<div class="about_me_content">
 								陳慶陽
 							</div>
@@ -1170,12 +1211,12 @@ body{
 			<div class="col-md-4">
 				<div class="row about_me_row">
 					<div class="about_me_box down2">
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-3 col-md-3">
 							<div class="about_me_title">
 								E-MAIL
 							</div>
 						</div>
-						<div class="col-xs-8 col-md-8">
+						<div class="col-xs-9 col-md-9">
 							<div class="about_me_content">
 								psychosocial909@gmail.com
 							</div>
@@ -1186,12 +1227,12 @@ body{
 			<div class="col-md-4">
 				<div class="row about_me_row">
 					<div class="about_me_box down3">
-						<div class="col-xs-4 col-md-4">
+						<div class="col-xs-2 col-md-2">
 							<div class="about_me_title">
 								作品集
 							</div>
 						</div>
-						<div class="col-xs-8 col-md-8">
+						<div class="col-xs-10 col-md-10">
 							<div class="about_me_content">
 								http://psycho909.github.io/mywebsite/
 							</div>
@@ -1242,13 +1283,13 @@ $(window).load(function() {
 			$('.skill_progress_bar').css('width',0);
 		}
 	})
-	var preImg=$('.prevjob-img').height();
+	var preText=$('.prevjob-content').height();
 	var bannerH=$('.banner-img-1').height();
-	$('.prevjob-content').height(preImg);
+	$('.img-box').height(preText);
 	$('.banner-img-box').css({'height':bannerH});
 	$(window).resize(function(){
 		var bannerHa=$('.banner-img-1').height();
-		$('.prevjob-content').height(preImg);
+		$('.img-box').height(preText);
 		$('.banner-img-box').css({'height':bannerHa});
 		console.log(bannerHa)
 	})
@@ -1260,7 +1301,7 @@ $(window).load(function() {
 	},{offset:'10%'})
 	$('.resume_other_two_box').waypoint(function(){
 		$('.resume_other_two_box .other_two_box').addClass('active');
-	},{offset:'10%'})
+	},{offset:'30%'})
 
 	$('.resume_about_box').waypoint(function(){
 		$('.resume_about_box .img_about_box').addClass('active');
@@ -1285,7 +1326,7 @@ $(window).load(function() {
 			barl.eq(i).css('width',elmArr[i])
 			barl.eq(i).text(elmArr[i]);
 		}
-	},{offset:'10%'})
+	},{offset:'30%'})
 	if(device.is_mobile()){
 		$('.card_rotate_col').on('click',function(){
 			if($(this).hasClass('active')){
