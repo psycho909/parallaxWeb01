@@ -99,9 +99,6 @@ body{
     width: 100%;
     object-fit:cover;
 }
-.resume_prevjob{
-	background-color: #e1eef6;
-}
 .row{
 	overflow: hidden;
 }
@@ -112,8 +109,24 @@ body{
 .prevjob-caption-box{
 	height: 50%;
 }
+.prevjob-content{
+	margin-bottom: 1rem;
+}
+.prevjob-caption-box:nth-child(1){
+	margin-bottom: 8px;
+}
+.prevjob-caption-col{
+	height: 100%;
+}
 .resume_prevjob .caption{
-	text-align: center;
+	padding: 0 20px 0;
+	border: 6px solid black;
+	height: 100%;
+	border-radius: 20px;
+}
+.resume_prevjob .caption .title{
+	font-size: 32px;
+	border-bottom: 3px solid black;
 }
 .resume_prevjob_box{
 	padding: .8em 0;
@@ -129,10 +142,13 @@ body{
 /*==============*/
 .resume_skill_box{
 	padding: 0 0 1em;
-	background-color: #30A9DE;
+	background-image: url('images/2fc0124e.png');
 }
-.resume_skill_box h3{
+.resume_skill_box .title{
 	text-align: center;
+	font-size: 4rem;
+	color: #404040;
+	font-weight: bold;
 }
 .skill_one{
 	background-color: #E0E3DA;
@@ -149,6 +165,8 @@ body{
 .skill_name{
 	color: #fff;
 	text-align: center;
+	font-weight: bold;
+	text-shadow: 0 0 1px #000;
 }
 .skill_progress{
 	height: 20px;
@@ -223,41 +241,70 @@ body{
 	padding: 3vw 0;
 	background-color: #D7FFF1;
 }
-.resume_contact_box h3{
-	margin-top: 10px;
+.resume_contact_box .title{
 	text-align: center;
+	display: block;
+	color: #fff;
+	font-size: 4rem;
+	text-shadow: 0 0 3px #000;
 }
 .about_me{
 	padding: .8em 1em;
 }
-.about_me_box{
-	border: 1px solid #8CD790;
+.about_me_row{
 	margin-left: 0;
 	margin-right: 0;
 	margin-bottom: 10px;
-	transition:all .5s;
-	border-radius: 8px;
+	position: relative;
+	height: 40px;
 }
-.about_me_box.active{
-	box-shadow:2px 2px 5px black;
-}
-.about_me_box [class*='col-']{
+.about_me_row [class*='col-']{
 	padding-left: 0;
 	padding-right: 0;
 }
+.about_me_box{
+	position: absolute;
+	width: 100%;
+	top: -40px;
+	left: 0;
+	transition: all 1s ease-in;
+}
+.about_me_box.down1.active{
+	animation: down 1s ease-in .5s forwards;
+}
+.about_me_box.down2.active{
+	animation: down 1s ease-in .1s forwards;
+}
+.about_me_box.down3.active{
+	animation: down 1s ease-in 1s forwards;
+}
+@keyframes down{
+	0%{
+		top: -40px;
+	}
+	100%{
+		top: 0;
+	}
+}
 .about_me_title{
 	text-align: center;
-	background-color: #F6B352;
+	background-color: #FFFFF2;
 	height: 40px;
 	line-height: 40px;
+	border-radius: 6px 0 0 6px;
+	font-weight: bold;
 }
 .about_me_content{
-	background-color: #Ffa392;
+	background-color: #FFFFF2;
 	font-size: .8em;
 	height: 40px;
+	line-height: 40px;
+	padding-left: 6px;
+	border-radius: 0 6px 6px 0;
+	font-weight: bold;
 }
 .resume_contact_box{
-	background-image: url('images/ignacio-hennigs-kenya-serengeti-africa-4.jpg');
+	background-image: url('images/about_me_star.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -265,7 +312,7 @@ body{
 }
 /*====*/
 .test{
-	padding: 4em 0;
+	padding: 1em 0;
 	background-color: #dedede;
 }
 .test-content{
@@ -528,9 +575,6 @@ body{
 .card_rotate_col.active{
 	transform:rotateY(180deg);
 }
-/*.card_rotate_col:hover{
-	transform:rotateY(180deg);
-}*/
 .card_rotate_front{
 	position: absolute;
 	top: 50%;
@@ -713,20 +757,20 @@ body{
 		<div class="row resume_prevjob">
 			<div class="col-md-4 prevjob-content">
 				<div class="row prevjob-caption-box">
-					<div class="col-md-12">
+					<div class="col-md-12 prevjob-caption-col">
 						<div class="caption">
-							<h3>Thumbnail label</h3>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<h3 class="title">Thumbnail label</h3>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus..</p>
 						</div>
 					</div>
 				</div>
 				<div class="row prevjob-caption-box">
-					<div class="col-md-12">
+					<div class="col-md-12 prevjob-caption-col">
 						<div class="caption">
-							<h3>Thumbnail label</h3>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<h3 class="title">Thumbnail label</h3>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
 						</div>
 					</div>
 				</div>
@@ -809,12 +853,12 @@ body{
 		</div>
 	</div>
 </section>
-
+<!--resume_skill_box start-->
 <section class="resume_skill_box">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h3>SKILL</h3>
+				<h3 class="title">SKILL</h3>
 			</div>
 		</div>
 		<div class="row">
@@ -830,8 +874,8 @@ body{
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="20%"
-									>50%</div>
+									data-progress="65%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -840,14 +884,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									Illustrator
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="40%"
-									>50%</div>
+									data-progress="70%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -856,14 +900,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									HTML
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="10%"
-									>50%</div>
+									data-progress="60%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -872,14 +916,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									CSS
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="80%"
-									>50%</div>
+									data-progress="60%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -892,14 +936,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									JQuery
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="60%"
-									>50%</div>
+									data-progress="50%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -908,14 +952,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									台語
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="30%"
-									>50%</div>
+									data-progress="50%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -924,14 +968,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									English
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="90%"
-									>50%</div>
+									data-progress="20%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -940,14 +984,14 @@ body{
 						<div class="row skill_box">
 							<div class="col-md-3 col-xs-3">
 								<div class="skill_name">
-									Photoshop
+									寫作能力
 								</div>
 							</div>
 							<div class="col-md-9 col-xs-9">
 								<div class="skill_progress">
 									<div class="skill_progress_bar"
-									data-progress="100%"
-									>50%</div>
+									data-progress="40%"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -957,6 +1001,7 @@ body{
 		</div>
 	</div>
 </section>
+<!--resume_skill_box end-->
 
 <section class="resume_other_two_box">
 	<div class="container">
@@ -1102,132 +1147,54 @@ body{
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			<h3>about me</h3>
+			<strong class="title">CONTENT ME</strong>
 			</div>
 		</div>
 		<div class="row about_me">
 			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
+				<div class="row about_me_row">
+					<div class="about_me_box down1">
+						<div class="col-xs-4 col-md-4">
+							<div class="about_me_title">
+								NAME
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
+						<div class="col-xs-8 col-md-8">
+							<div class="about_me_content">
+								陳慶陽
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
+				<div class="row about_me_row">
+					<div class="about_me_box down2">
+						<div class="col-xs-4 col-md-4">
+							<div class="about_me_title">
+								E-MAIL
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
+						<div class="col-xs-8 col-md-8">
+							<div class="about_me_content">
+								psychosocial909@gmail.com
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
+				<div class="row about_me_row">
+					<div class="about_me_box down3">
+						<div class="col-xs-4 col-md-4">
+							<div class="about_me_title">
+								作品集
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							新北市三重區中正北路145巷7弄1號2樓
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="row about_me_box">
-					<div class="col-xs-4 col-md-4">
-						<div class="about_me_title">
-							NAME
-						</div>
-					</div>
-					<div class="col-xs-8 col-md-8">
-						<div class="about_me_content">
-							CHEN CHING YANG
+						<div class="col-xs-8 col-md-8">
+							<div class="about_me_content">
+								http://psycho909.github.io/mywebsite/
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1299,9 +1266,14 @@ $(window).load(function() {
 		$('.resume_about_box .img_about_box').addClass('active');
 	},{offset:'10%'})
 
+	$('.resume_about_box').waypoint(function(){
+		$('.resume_about_box .img_about_box').addClass('active');
+	},{offset:'10%'})
+
 	$('.resume_contact_box').waypoint(function(){
 		$('.resume_contact_box .about_me_box').addClass('active');
-	},{offset:'60%'})
+	},{offset:'70%'})
+
 	var elmArr = [],p;
 	$('.skill_progress_bar').each(function(i){
 		p=$(this).attr('data-progress')
