@@ -71,7 +71,7 @@ body{
 .scene{
 	width: 100%;
 	height: 80vh;
-	background-image: url('../images/t01.jpg')
+	background-image: url('../images/t01.jpg?20160306')
 }
 .bg{
 	width: 100%;
@@ -79,11 +79,11 @@ body{
 	background-size: cover;
 }
 .bg01{
-	background-image: url('../images/t01.jpg');
+	background-image: url('../images/t01.jpg?20160306');
 	background-position: top center;
 }
 .bg02{
-	background-image: url('../images/t02.png');
+	background-image: url('../images/t02.png?20160306');
 	background-position: top center;
 }
 /*====*/
@@ -142,7 +142,7 @@ body{
 /*==============*/
 .resume_skill_box{
 	padding: 0 0 1em;
-	background-image: url('../images/2fc0124e.png');
+	background-image: url('../images/2fc0124e.png?20160306');
 }
 .resume_skill_box .title{
 	text-align: center;
@@ -309,7 +309,7 @@ body{
 	text-align: center;
 }
 .resume_contact_box{
-	background-image: url('../images/about_me_star.jpg');
+	background-image: url('../images/about_me_star.jpg?20160306');
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -318,7 +318,7 @@ body{
 /*====*/
 .test{
 	padding: 1em 0;
-	background-image: url('../images/d81a4666.png');
+	background-image: url('../images/d81a4666.png?20160306');
 }
 .test-content{
 	height: 100%;
@@ -350,7 +350,7 @@ body{
 	width: 32px;
 	height: 32px;
 	background-size: 32px 32px;
-	background-image: url('../images/icon_open.png');
+	background-image: url('../images/icon_open.png?20160306');
 	z-index: 2;
 }
 .test-content a:before{
@@ -376,35 +376,35 @@ body{
 	margin-left: -1px;
 }
 .test-box .test-content:nth-child(1) a{
-	background-image: url('../images/Alien.svg');
+	background-image: url('../images/Alien.svg?20160306');
 	background-color: #8C4E96;
 }
 .test-box .test-content:nth-child(2) a{
-	background-image: url('../images/Moon.svg');
+	background-image: url('../images/Moon.svg?20160306');
 	background-color: #A9BCCC;
 }
 .test-box .test-content:nth-child(3) a{
-	background-image: url('../images/Ninja Turtle.svg');
+	background-image: url('../images/Ninja Turtle.svg?20160306');
 	background-color: #689238;
 }
 .test-box .test-content:nth-child(4) a{
-	background-image: url('../images/Astronaut.svg');
+	background-image: url('../images/Astronaut.svg?20160306');
 	background-color: #3B92B9;
 }
 .test-box .test-content:nth-child(5) a{
-	background-image: url('../images/Comet.svg');
+	background-image: url('../images/Comet.svg?20160306');
 	background-color: #BF411A;
 }
 .test-box .test-content:nth-child(6) a{
-	background-image: url('../images/Close Up Mode.svg');
+	background-image: url('../images/Close Up Mode.svg?20160306');
 	background-color: #AC2B28;
 }
 .test-box .test-content:nth-child(7) a{
-	background-image: url('../images/Thriller.svg');
+	background-image: url('../images/Thriller.svg?20160306');
 	background-color: #9D93AF;
 }
 .test-box .test-content:nth-child(8) a{
-	background-image: url('../images/Sports Mode.svg');
+	background-image: url('../images/Sports Mode.svg?20160306');
 	background-color: #007166;
 }
 .test-box .test-content:nth-child(5),
