@@ -70,6 +70,18 @@ body{
 }
 .title-img{
 	margin: 0 auto;
+	animation: titleImg 1s ease-in .5s infinite;
+}
+@keyframes titleImg{
+	0%{
+		transform:scale(1);
+	}
+	50%{
+		transform:scale(1.2);
+	}
+	100%{
+		transform:scale(1);
+	}
 }
 .scene{
 	width: 100%;
@@ -478,7 +490,7 @@ body{
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-color: red;
+	background-color: rgba(0,0,0,.6);
 	position: absolute;
 	top:0;
 	left: 0;
@@ -488,6 +500,10 @@ body{
 .four_angle_img_box .four_angle_bgcolor .four_angle_img img{
 	width: 100%;
 	height: 100%;
+	transition: all .5s ease-in;
+}
+.four_angle_img_box .four_angle_bgcolor:hover .four_angle_img img{
+	transform:scale(1.1);
 }
 .four_angle_img_box .four_angle_bgcolor .four_angle_img:after{
 	content: '';
@@ -782,18 +798,17 @@ body{
 				<div class="row prevjob-caption-box">
 					<div class="col-md-12 prevjob-caption-col">
 						<div class="caption">
-							<h3 class="title">Thumbnail label</h3>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus..</p>
+							<h3 class="title">Alice in Wonderland</h3>
+							<p>That's enough about lessons,' the Gryphon interrupted in a very decided tone: 'tell her something about the games now</p>
 						</div>
 					</div>
 				</div>
 				<div class="row prevjob-caption-box">
 					<div class="col-md-12 prevjob-caption-col">
 						<div class="caption">
-							<h3 class="title">Thumbnail label</h3>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+							<h3 class="title">The Wizard of Oz</h3>
+							<p>I cannot imagine," replied the Scarecrow; "but we can go and see.</p>
+							<p>Just then another groan reached their ears, and the sound seemed to come from behind them.</p>
 						</div>
 					</div>
 				</div>
@@ -825,8 +840,8 @@ body{
 						</div>
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+						<h3>The Scarlet Plague</h3>
+						<p>The scarlet of the maples can shake me like the cry of bugles going by.</p>
 					</div>
 				</a>
 			</div>
@@ -846,8 +861,8 @@ body{
 						</div>
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+						<h3>Moby Dick</h3>
+						<p>As this glad ship of good luck bore down upon the moody Pequod.</p>
 					</div>
 				</a>
 			</div>
@@ -867,8 +882,8 @@ body{
 						</div>
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+						<h3>The War of the Worlds Bk 1</h3>
+						<p>"They aren't to be killed," said the milkman, "if that can possibly be avoided."</p>
 					</div>
 				</a>
 			</div>
@@ -888,8 +903,8 @@ body{
 						</div>
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+						<h3>Around the World in 80 Days</h3>
+						<p>Seven hundred and seven miles from Liverpool.</p>
 					</div>
 				</a>
 			</div>
@@ -1105,8 +1120,8 @@ body{
 						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+						<h3>Ut vitae torquatos</h3>
+						<p>Cibo quas et eam, commune gloriatur adipiscing qui in, eum cu ipsum doctus. Usu ne graecis copiosae</p>
 					</div>
 				</div>
 			</div>
@@ -1119,8 +1134,8 @@ body{
 						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+						<h3>Ius congue voluptatum</h3>
+						<p>Vix et habeo nominati contentiones, ne eum ullum albucius. Nec nibh insolens cu</p>
 					</div>
 				</div>
 			</div>
@@ -1133,8 +1148,8 @@ body{
 						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
+						<h3>They aren't to be killed</h3>
+						<p>Ex qui oporteat corrumpit. Vivendo suscipit phaedrum cu pro</p>
 					</div>
 				</div>
 			</div>
@@ -1147,7 +1162,7 @@ body{
 						<img src="images/illust1-350x350.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="caption">
-						<h3>Thumbnail label</h3>
+						<h3>Lorem ipsum</h3>
 						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam</p>
 					</div>
 				</div>
@@ -1160,10 +1175,12 @@ body{
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h3 style="text-align: center;">Thumbnail label</h3>
-				<p>高雄市苓雅區一棟出租大樓，竟然在6天內傳出2腐屍案。上月26日警消據報抵達現場，發現一名50歲宋姓男子，陳屍在套房內，身上雖無明顯傷痕，但顯然死亡多時，屍體已嚴重腐爛。檢警決定3日再行複驗詳查死因。然而本月1日的下午，該大樓內竟然又再飄出惡臭，警消再度抵達現場，在另外一間套房內發現一名40歲的班姓男子，倒在電腦桌前死亡多時，身上一樣無明顯外傷，但遺體嚴重腐爛，發出惡臭。2件腐屍案死者都無留下遺書，其中是否有關聯性，還待檢警進一步調查。</p>
-				<p>如此詭異的巧合，就發生在高雄市苓雅區一棟公寓大樓內，本月1日下午，大樓內傳出陣陣屍臭味，警方據報抵達現場後發現，為一名多日聯繫不上的班姓男子在屋內死亡。離奇的是，同棟大樓4天前也曾發生另一起腐屍案。</p>
-				<p>據苓雅分隊表示，4天前抵達大樓現場時同樣滿是屍臭味，1日又到同棟大樓救護，聞到相似的味道，立即心裡有底。目前兩名死者的詳細死亡原因，都由員警調查處理。</p>
+				<h3 style="text-align: center;">The War of the Worlds Bk 1</h3>
+				<p>"They aren't to be killed," said the milkman, "if that can possibly be avoided."</p>
+				<p>I saw my neighbour gardening, chatted with him for a time, and then strolled in to breakfast. It was a most unexceptional morning. My neighbour was of opinion that the troops would be able to capture or to destroy the Martians during the day.</p>
+				<p>"It's a pity they make themselves so unapproachable," he said. "It would be curious to know how they live on another planet; we might learn a thing or two."</p>
+				<p>He came up to the fence and extended a handful of strawberries, for his gardening was as generous as it was enthusiastic. At the same time he told me of the burning of the pine woods about the Byfleet Golf Links.</p>
+				<p>"They say," said he, "that there's another of those blessed things fallen there--number two. But one's enough, surely. This lot'll cost the insurance people a pretty penny before everything's settled." He laughed with an air of the greatest good humour as he said this. The woods, he said, were still burning, and pointed out a haze of smoke to me. "They will be hot under foot for days, on account of the thick soil of pine needles and turf," he said, and then grew serious over "poor Ogilvy."</p>
 			</div>
 		</div>
 		<div class="row">
@@ -1276,10 +1293,6 @@ var device = {
     }
 };
 $(window).load(function() {
-	$('#scene').parallax({
-		scalarX: 2,
-		scalarY: 5,
-	});
 	$(window).on('scroll',function(){
 		if($(window).scrollTop()==0){
 			$('.resume_box .resume_name_pic').removeClass('active');
@@ -1317,7 +1330,6 @@ $(window).load(function() {
 	$('.resume_about_box').waypoint(function(){
 		$('.resume_about_box .img_about_box').addClass('active');
 	},{offset:'10%'})
-
 	$('.resume_contact_box').waypoint(function(){
 		$('.resume_contact_box .about_me_box').addClass('active');
 	},{offset:'70%'})
@@ -1335,6 +1347,7 @@ $(window).load(function() {
 		}
 	},{offset:'30%'})
 	if(device.is_mobile()){
+		$('#scene').parallax();
 		$('.card_rotate_col').on('click',function(){
 			if($(this).hasClass('active')){
 				$(this).removeClass('active');
@@ -1343,6 +1356,10 @@ $(window).load(function() {
 			}
 		})
 	}else{
+		$('#scene').parallax({
+			scalarX: 2,
+			scalarY: 5,
+		});
 		$('.card_rotate_col').hover(function(){
 			if($(this).hasClass('active')){
 				$(this).removeClass('active');
